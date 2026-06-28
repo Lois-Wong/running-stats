@@ -8,7 +8,7 @@ from google.oauth2.credentials import Credentials
 def getcredentials():
     if os.path.isfile("token.json"):
         creds = Credentials.from_authorized_user_file("token.json")
-        if creds.expired:
+        if creds.expired and creds.refresh_token:
             creds.refresh(Request())
             with open("token.json", "w") as token:
                 token.write(creds.to_json())
