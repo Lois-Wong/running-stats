@@ -16,7 +16,7 @@ def getcredentials():
     else:
         flow = InstalledAppFlow.from_client_secrets_file(
             "client_secret.json", 
-            scopes=["https://www.googleapis.com/auth/fitness.activity.read"]
+            scopes=["https://www.googleapis.com/auth/googlehealth.activity_and_fitness.readonly"]
             )   
         creds = flow.run_local_server(port=0)
         with open("token.json", "w") as token:
